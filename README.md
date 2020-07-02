@@ -138,7 +138,11 @@ Grafana should be up and running at port 3000, view at -> `http://<public_ip>:30
 
 > Credentials for Grafana -> username & password = admin
 
-To sync Grafana with Prometheus refer the screenshots below!
+### 1.3 Screenshots
+
+> To sync Grafana with Prometheus refer the screenshots below!
+
+
 
 ## Part 2
 
@@ -224,7 +228,7 @@ Kibana should be up and running, view at -> `http://<public_ip>`
 
 > Credentials for Kibana ->
 username - **kibanaadmin**
-password - <passowrd_you_set_during_the_prompt>
+password - <password_set_during_prompt>
 
 ### 2.3 Logstash Setup
 ##### 2.3.1 Commands:
@@ -240,9 +244,12 @@ output.elasticsearch:
   password: "pass"
 ```
 
-> You need to put your credentials that you find in **kibana.yml**
-Sample data is available in the dashboard, do add it to see how things look
-Screenshots of the Kibana dashboard below!
+> You need to put your credentials that you find in **kibana.yml**,
+Sample data is available in the dashboard do add it to see how things look
+
+### 2.4 Screenshots
+
+
 
 ### Pro Tips on Using the ELK Stack
 - The ELK stack requires decent amount of memory, the standard config recommends 2GB (i.e. T2.medium).
