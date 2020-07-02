@@ -15,13 +15,13 @@
 - Install node exporter and configure
 - Check web interface
 ##### 1.1.2 Commands:
-`$ sudo apt install ansible python-pip`
-`$ pip install tox`
-`$ git clone https://github.com/cloudalchemy/ansible-prometheus`
-`$ cd ansible-prometheus/`
-`$ mkdir -p roles/cloudalchemy.prometheus`
-`$ mv defaults/ handlers/ meta/ molecule/ tasks/ templates/ vars/ roles/cloudalchemy.prometheus/`
-`$ vi main.yml`
+- `$ sudo apt install ansible python-pip`
+- `$ pip install tox`
+- `$ git clone https://github.com/cloudalchemy/ansible-prometheus`
+- `$ cd ansible-prometheus/`
+- `$ mkdir -p roles/cloudalchemy.prometheus`
+- `$ mv defaults/ handlers/ meta/ molecule/ tasks/ templates/ vars/ roles/cloudalchemy.prometheus/`
+- `$ vi main.yml`
 
 Copy the following code to **main.yml**
 ```
