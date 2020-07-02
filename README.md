@@ -244,8 +244,7 @@ output.elasticsearch:
   password: "pass"
 ```
 
-> You need to put your credentials that you find in **kibana.yml**,
-Sample data is available in the dashboard do add it to see how things look
+> Use your credentials that you found in **kibana.yml**, Sample data is available in the dashboard do add it to see how things look
 
 ### 2.4 Screenshots
 
