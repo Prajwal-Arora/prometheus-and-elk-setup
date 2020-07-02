@@ -37,24 +37,24 @@ Copy the following code to **main.yml**
         labels:
           env: demosite
 ```
-`$ vi inventory`
+- `$ vi inventory`
 
 Copy the following code to **inventory**
 ```
 localhost ansible_connection=local
 ```
-`$ ansible-playbook -i inventory main.yml`
-`$ cd ..`
-`$ curl -LO https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-amd64.tar.gz`
-`$ tar xzf node_exporter-1.0.1.linux-amd64.tar.gz`
-`$ cd node_exporter-1.0.1.linux-amd64/`
-`$ ./node_exporter &`
+- `$ ansible-playbook -i inventory main.yml`
+- `$ cd ..`
+- `$ curl -LO https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-amd64.tar.gz`
+- `$ tar xzf node_exporter-1.0.1.linux-amd64.tar.gz`
+- `$ cd node_exporter-1.0.1.linux-amd64/`
+- `$ ./node_exporter &`
 
-> (&) used in the above command allows the script to run in the background, so you can press `ctrl c` and continue with your work
+> **&** used in the above command allows the script to run in the background, so you can press `ctrl c` and continue with your work
 
 Once the Node Exporter is installed and running, you can verify that metrics are being exported by cURLing the /metrics endpoint
 
-`$ curl http://localhost:9100/metrics`
+- `$ curl http://localhost:9100/metrics`
 
 You should see something like this -
 ```
@@ -65,7 +65,7 @@ go_gc_duration_seconds{quantile="0.25"} 4.5926e-05
 go_gc_duration_seconds{quantile="0.5"} 5.846e-05
 # etc.
 ```
-`$ sudo vi /etc/prometheus/prometheus.yml`
+- `$ sudo vi /etc/prometheus/prometheus.yml`
 
 Your file should look like this -
 ```
@@ -107,8 +107,8 @@ scrape_configs:
 
 > You just need to add last 4 lines of the above code to your file **prometheus.yml**
 
-`$ sudo systemctl restart prometheus`
-`$ ^restart^status`
+- `$ sudo systemctl restart prometheus`
+- `$ ^restart^status`
 
 You should see something like this -
 ```
@@ -128,11 +128,11 @@ Now that we have prometheus and node_exporter setup, we should be able to view t
 
 ### 1.2 Grafana Setup
 ##### 1.2.1 Commands:
-`$ curl -LO https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_5.1.4_amd64.deb`
-`$ sudo apt-get install -y adduser libfontconfig`
-`$ sudo dpkg -i grafana_5.1.4_amd64.deb`
-`$ sudo systemctl start grafana-server`
-`$ sudo systemctl enable grafana-server`
+- `$ curl -LO https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana_5.1.4_amd64.deb`
+- `$ sudo apt-get install -y adduser libfontconfig`
+- `$ sudo dpkg -i grafana_5.1.4_amd64.deb`
+- `$ sudo systemctl start grafana-server`
+- `$ sudo systemctl enable grafana-server`
 
 Grafana should be up and running at port 3000, view at -> `http://<public_ip>:3000/login`
 
@@ -151,9 +151,9 @@ To sync Grafana with Prometheus refer the screenshots below!
 - Create main.yaml playbook
 - Run the playbook
 ##### 2.1.2 Commands:
-`$ git clone https://github.com/elastic/ansible-elasticsearch`
-`$ cd ansible-elasticsearch`
-`$ vi main.yml`
+- `$ git clone https://github.com/elastic/ansible-elasticsearch`
+- `$ cd ansible-elasticsearch`
+- `$ vi main.yml`
 
 Copy the following code to **main.yml**
 ```
@@ -164,22 +164,22 @@ Copy the following code to **main.yml**
   vars:
     es_version: 7.8.0
 ```
-`$ mkdir -p roles/elastic.elasticsearch`
-`$ mv defaults/ docs/ files/ filter_plugins/ handlers/ helpers/ meta/ tasks/ templates/ test/ vars/ roles/elastic.elasticsearch/`
-`$ vi inventory`
+- `$ mkdir -p roles/elastic.elasticsearch`
+- `$ mv defaults/ docs/ files/ filter_plugins/ handlers/ helpers/ meta/ tasks/ templates/ test/ vars/ roles/elastic.elasticsearch/`
+- `$ vi inventory`
 
 Copy the following code to **inventory**
 ```
 localhost ansible_connection=local
 ```
-`$ ansible-playbook -i inventory main.yml`
+- `$ ansible-playbook -i inventory main.yml`
 
 ### 2.2 Kibana Setup
 ##### 2.2.1 Commands:
-`$ sudo apt-get install apache2-utils`
-`$ sudo apt install kibana`
-`$ sudo apt install nginx`
-`$ sudo vi /etc/nginx/sites-enabled/default`
+- `$ sudo apt-get install apache2-utils`
+- `$ sudo apt install kibana`
+- `$ sudo apt install nginx`
+- `$ sudo vi /etc/nginx/sites-enabled/default`
 
 Copy the following code -
 ```
@@ -201,12 +201,12 @@ server {
         }
 }
 ```
-```$ echo "kibanaadmin: `openssl passwd -apr1`" | sudo tee -a /etc/nginx/htpasswd.users```
+- ```$ echo "kibanaadmin: `openssl passwd -apr1`" | sudo tee -a /etc/nginx/htpasswd.users```
 
 > You should get a password prompt after executing the command above
 set a password of your choice
 
-`$ vi /etc/kibana/kibana.yml`
+- `$ vi /etc/kibana/kibana.yml`
 
 You need to look for ElasticSearch username and password, something like below!
 ```
@@ -217,8 +217,8 @@ You need to look for ElasticSearch username and password, something like below!
 #elasticsearch.username: "kibana_system"
 #elasticsearch.password: "pass"
 ```
-`$ sudo systemctl start elasticsearch`
-`$ sudo systemctl start kibana`
+- `$ sudo systemctl start elasticsearch`
+- `$ sudo systemctl start kibana`
 
 Kibana should be up and running, view at -> `http://<public_ip>`
 
@@ -228,9 +228,9 @@ password - <passowrd_you_set_during_the_prompt>
 
 ### 2.3 Logstash Setup
 ##### 2.3.1 Commands:
-`$ curl -LO https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.8.0-amd64.deb`
-`$ sudo dpkg -i filebeat-7.8.0-amd64.deb`
-`$ sudo vi /etc/filebeat/filebeat.yml`
+- `$ curl -LO https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.8.0-amd64.deb`
+- `$ sudo dpkg -i filebeat-7.8.0-amd64.deb`
+- `$ sudo vi /etc/filebeat/filebeat.yml`
 
 Append the following code -
 ```
