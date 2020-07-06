@@ -144,15 +144,15 @@ Grafana should be up and running at port 3000, view at -> `http://<public_ip>:30
 
 ![alt text][s1]
 
-[s1]:  "s1"
+[s1]: https://github.com/Prajwal-Arora/prometheus-and-elk-setup/blob/master/screenshots/1.png "s1"
 
 ![alt text][s2]
 
-[s2]:  "s2"
+[s2]: https://github.com/Prajwal-Arora/prometheus-and-elk-setup/blob/master/screenshots/2.png "s2"
 
 ![alt text][s3]
 
-[s3]:  "s3"
+[s3]: https://github.com/Prajwal-Arora/prometheus-and-elk-setup/blob/master/screenshots/3.png "s3"
 
 ## Part 2
 
@@ -260,19 +260,19 @@ output.elasticsearch:
 
 ![alt text][s4]
 
-[s4]:  "s4"
+[s4]: https://github.com/Prajwal-Arora/prometheus-and-elk-setup/blob/master/screenshots/4.png "s4"
 
 ![alt text][s5]
 
-[s5]:  "s5"
+[s5]: https://github.com/Prajwal-Arora/prometheus-and-elk-setup/blob/master/screenshots/5.png "s5"
 
 ![alt text][s6]
 
-[s6]:  "s6"
+[s6]: https://github.com/Prajwal-Arora/prometheus-and-elk-setup/blob/master/screenshots/6.png "s6"
 
 ![alt text][s7]
 
-[s7]:  "s7"
+[s7]: https://github.com/Prajwal-Arora/prometheus-and-elk-setup/blob/master/screenshots/7.png "s7"
 
 ### Pro Tips on Using the ELK Stack
 - The ELK stack requires decent amount of memory, the standard config recommends 2GB (i.e. T2.medium).
